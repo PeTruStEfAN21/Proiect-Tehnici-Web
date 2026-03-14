@@ -1,0 +1,154 @@
+html, body, div, span, h1, h2, h3, p, a, img, ul, li, table, tr, th, td, section, footer, header {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+/* Unități fixe pentru html și body (conform cerinței) */
+html {
+    font-size: 16px; 
+}
+
+body {
+    width: 100%; 
+    min-height: 100vh;
+    /* Toate celelalte unități vor fi relative (rem) */
+}
+
+/* Redefinirea stilurilor de bază folosind unități RELATIVE (rem) */
+h1 { font-size: 2.5rem; font-weight: bold; margin-bottom: 1.2rem; }
+h2 { font-size: 2rem; font-style: italic; color: var(--accent); }
+p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem; }
+
+/* Stilizare Bullet-uri și Liste */
+ul {
+    list-style-type: square; /* Schimbăm bulina standard */
+    padding-left: 2.5rem;
+    color: var(--culoare-contrast);
+}
+
+li {
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+/* Stilizare Tabele (Reset specific) */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+
+
+/* Stilizare formulă MathML */
+math {
+    font-size: 1.5rem; /* Dimensiune relativă */
+    background: var(--fundal-sectiuni);
+    padding: 1.2rem;
+    border-radius: 8px;
+    display: flex;
+    margin: 1rem auto;
+}
+
+math mi {
+    color: var(--culoare-contrast);
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+}
+
+/* Schimbăm culoarea puterii (cifra 2 de la inaltime^2) */
+math mn {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+/* Stilizăm linia de fracție */
+math mfrac {
+    padding: 0.3rem;
+}
+
+
+
+
+/*Butoane pentru navigare*/
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center; /* Le pune pe mijloc orizontal */
+    gap: 1.5rem;             /* Distanța dintre butoane */
+    padding: 1rem 0;
+}
+
+/* Stilul pentru butoane */
+nav ul li a {
+    text-decoration: none;
+    background-color: var(--culoare-baza);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    border-bottom: 3px solid var(--culoare-contrast);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Efectul de hover pe butoane */
+nav ul li a:hover {
+    background-color: var(--culoare-hover);
+    color: var(--culoare-noapte);
+    transform: translateY(-3px); /* Se ridică un pic */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Sub-meniul */
+nav ul li {
+    position: relative;
+    transition: all 1s linear;
+
+}
+
+nav ul li ul {
+    display: none; /* Îl ascundem momentan ca să nu strice rândul */
+    position: absolute;
+    flex-direction: column;
+    background: var(--fundal-sectiuni);
+    border: 1px solid var(--margine-sectiune);
+    border-radius: 5px;
+    z-index: 10;
+}
+
+nav ul li:hover ul {
+     display: block;
+    position: absolute;
+    animation: animatie-submeniu 0.7s linear;
+    transform-origin: center top;
+}
+
+
+
+
+@keyframes animatie-submeniu{
+    0%{
+        opacity : 0;
+        transform: scale(0,0);
+    }
+
+    25%{
+        transform: scale(1,1);
+    }
+
+    50%{
+        transform: scale(0.5,0.5);
+    }
+
+
+    
+    100%{
+        opacity: 1;
+        transform: scale(1,1);
+    }
+}
