@@ -1,0 +1,262 @@
+
+body {
+    // Variabile CSS
+    --culoare-baza: #FF5733; 
+    --culoare-contrast: #C70039;
+    --culoare-luminoasa: #FFC300;
+    --culoare-noapte: #1E272E;
+    --culoare-claritate: #F5F6FA;
+
+    --fundal-pagina: var(--culoare-noapte);    
+    --fundal-sectiuni: var(--culoare-claritate);  
+    --accent: var(--culoare-baza);           
+    --text-principal: var(--culoare-noapte);
+    
+    // Variabile Meniu specifice
+    --culoare-text-meniu: #ffffff;
+    --culoare-hover-meniu: var(--culoare-luminoasa);
+    --fundal-submeniu: var(--culoare-noapte);
+}
+
+$spatiere-laterala: 10%;
+$gap-celule: 25px;
+$padd-universal: 20px;
+$timp-tranzitie: 0.5s;
+$t-delay: 300ms;
+
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html {
+    font-size: 16px;
+    transition: font-size 0.3s ease;
+}
+
+body {
+    background-color: var(--fundal-pagina);
+    font-family: 'Roboto', sans-serif;
+    padding: 40px $spatiere-laterala;
+    color: var(--text-principal);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+h1 { font-size: 2.5rem; font-weight: bold; margin-bottom: 1.2rem; }
+h2 { font-size: 2rem; font-style: italic; color: var(--accent); }
+p { font-size: 1.1rem; margin-bottom: 1rem; }
+
+ul {
+    list-style-type: square;
+    padding-left: 2.5rem;
+    color: var(--culoare-contrast);
+    li { margin-bottom: 0.5rem; font-style: italic; }
+}
+
+%flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    @extend %flex-center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+
+    ul.meniu-principal {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+
+        > li {
+            position: relative;
+            padding: 0 15px;
+
+            a {
+                display: flex; 
+                align-items: center;
+                color: var(--culoare-text-meniu);
+                background-color: var(--culoare-baza);
+                text-decoration: none;
+                font-weight: bold;
+                padding: 0.8rem 1.5rem;
+                border-radius: 8px;
+                border-bottom: 3px solid var(--culoare-contrast);
+                transition: all $timp-tranzitie ease;
+
+                &:hover {
+                    color: var(--culoare-hover-meniu);
+                    background-color: var(--culoare-contrast);
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                }
+
+                .text-acasa {
+                    max-width: 0;
+                    opacity: 0;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    transition: max-width 0.4s ease, opacity 0.4s ease, margin-left 0.4s ease;
+                }
+            }
+
+            // Mărește textul la hover pe tot butonul
+            &:hover a .text-acasa {
+                max-width: 100px;
+                opacity: 1;
+                margin-left: 8px; 
+            }
+
+            .submeniu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--fundal-submeniu);
+                border: 1px solid var(--culoare-contrast);
+                border-radius: 5px;
+                min-width: 150px;
+                z-index: 10;
+                transform: scale(0);
+                transform-origin: top center;
+                transition: transform 0.4s ease-in-out;
+                list-style: none;
+                padding: 0;
+
+                li a {
+                    background-color: transparent;
+                    border: none;
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 0;
+                    &:hover {
+                        color: var(--culoare-hover-meniu);
+                        transform: none;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            &:hover .submeniu { transform: scale(1); }
+        }
+    }
+}
+
+#hamburger {
+    display: none; 
+    position: relative;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+
+    span {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background-color: var(--culoare-baza);
+        border-radius: 2px;
+
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                top: ($i - 1) * 10px;
+                animation: aparitie-bara 0.8s ease forwards;
+                animation-delay: ($i - 1) * $t-delay;
+            }
+        }
+    }
+}
+
+@keyframes aparitie-bara {
+    0% { opacity: 0; transform: translateY(-20px) rotate(-10deg); background-color: var(--culoare-contrast); }
+    50% { opacity: 0.5; transform: translateY(5px) rotate(10deg); background-color: var(--culoare-luminoasa); }
+    100% { opacity: 1; transform: translateY(0) rotate(0deg); background-color: var(--culoare-baza); }
+}
+
+
+#grid-pagina {
+    display: grid;
+    gap: $gap-celule;
+    grid-template-areas: 
+        "zona1 zona1 zona1"
+        "zona2 zona3 zona3"
+        "zona2 zona4 zona4"
+        "zona5 zona6 zona7"
+        "zona8 zona8 zona8";
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#welcome { grid-area: zona1; display: flex; flex-direction: column; justify-content: center; padding-left: 10%; background: linear-gradient(rgba(245,246,250,0.9), rgba(245,246,250,0.9)), url('./resurse/imagini/background-sport.jpg'); background-size: cover; }
+#tabel-preturi { grid-area: zona2; }
+#evenimente { grid-area: zona3; }
+#anunturi { grid-area: zona4; }
+#online-users { grid-area: zona5; border-left: 4px solid var(--accent); }
+#user-stats { grid-area: zona6; border-left: 4px solid var(--accent); }
+#server-stats { grid-area: zona7; border-left: 4px solid var(--accent); }
+#diverse { grid-area: zona8; }
+
+header, footer, section, aside > section, figure {
+    background-color: var(--fundal-sectiuni);
+    padding: $padd-universal;
+    border-radius: 12px;
+    border-bottom: 4px solid var(--culoare-contrast);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+
+header { margin-bottom: 20px; }
+footer { margin-top: 20px; }
+
+
+img, video, iframe { width: 100%; max-width: 800px; min-width: 200px; height: auto; display: block; margin: 15px auto; border-radius: 8px; }
+
+// Tabel
+#tabel-preturi table {
+    width: 100%; border-collapse: collapse; border: 6px double var(--culoare-contrast);
+    th { background-color: var(--culoare-contrast); color: white; padding: 10px; }
+    td { padding: 12px; border: 1px solid var(--culoare-noapte); transition: all 0.75s ease; }
+    td:nth-child(odd) { color: var(--culoare-luminoasa); }
+    td:nth-child(even) { color: var(--culoare-contrast); }
+    tr:hover td:nth-child(odd), tr:hover td:nth-child(even) { background-color: var(--culoare-noapte); border: 5px solid var(--culoare-luminoasa); }
+}
+
+math { background: var(--fundal-sectiuni); padding: 1.2rem; border-radius: 8px; display: flex; margin: 1rem auto; font-size: 1.5rem; }
+math mi { color: var(--culoare-contrast); font-weight: bold; font-family: "Courier New", monospace; }
+math mn { color: var(--accent); font-size: 1.2rem; }
+math mfrac { padding: 0.3rem; }
+
+#link-top { position: fixed; bottom: 30px; right: 30px; z-index: 1000; opacity: 0.6; transition: opacity 0.5s ease; }
+#link-top:hover { opacity: 1; }
+#container-sageata { width: 60px; height: 60px; background-color: var(--culoare-baza); border: 3px solid var(--culoare-contrast); border-radius: 20px 20px 0 0; display: flex; align-items: center; justify-content: center; transform: rotate(-15deg); transition: all 0.5s ease; }
+#link-top:hover #container-sageata { background-color: var(--culoare-luminoasa); transform: rotate(0deg); }
+#container-sageata span { font-size: 30px; color: white; display: block; transition: transform 0.5s ease; }
+#link-top:hover span { transform: scale(1.4); color: var(--culoare-noapte); }
+
+
+@media screen and (max-width: 1024px) {
+    body { padding: 40px 5%; }
+    #grid-pagina { grid-template-areas: "zona1 zona1" "zona2 zona3" "zona4 zona4" "zona5 zona6" "zona7 zona7" "zona8 zona8"; grid-template-columns: 1fr 1fr; }
+    nav ul.meniu-principal li a span { display: none; }
+}
+
+@media screen and (max-width: 600px) {
+    body { padding: 40px 2%; }
+    #grid-pagina { display: block; }
+    section { margin-bottom: 15px; }
+    
+    #hamburger { display: block; }
+    nav ul.meniu-principal {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+        mask-size: 100% 0%;
+        mask-repeat: no-repeat;
+        transition: mask-size 0.5s ease;
+    }
+    .nav-deschis ul.meniu-principal { display: flex; mask-size: 100% 100%; }
+}

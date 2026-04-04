@@ -10,6 +10,7 @@
     
     <link rel="stylesheet" href="./bonus.css">
     <link rel="stylesheet" href="./stil.css">
+    <link rel="stylesheet" href="./still.css">  
     <link rel="apple-touch-icon" sizes="180x180" href="./resurse/ico/sigla.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./resurse/ico/sigla.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./resurse/ico/sigla.png">
@@ -22,40 +23,49 @@
 <body>
 
     <header>
-        <hgroup>
-            <h1><i class="fas fa-dumbbell fa-spin"></i> SportXtreme</h1>
-            <h2>Performanță la orice pas - Echipament sportiv de top</h2>
-        </hgroup>
-        <nav>
-            <ul>
-                <li><a href="#acasa">Acasă</a>
-                    <ul>
-                        <li><a href="#welcome">Prezentare</a></li>
-                        <li><a href="#evenimente">Evenimente</a></li>
-                        <li><a href="#diverse">Resurse Video</a></li>
-                    </ul>
-                </li>
-                <li><a href="#tabel-preturi">Produse</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <hgroup>
+        <h1><i class="fas fa-dumbbell fa-spin"></i> SportXtreme</h1>
+        <p class="slogan-site">Performanță la orice pas - Echipament sportiv de top</p> 
+    </hgroup>
+            <nav>
+    <div id="hamburger"> <span></span><span></span><span></span>
+    </div>
+    <ul class="meniu-principal">
+        <li><a href="index.html"><i class="fas fa-home"></i> <span class="text-acasa">Acasă</span></a>
+            <ul class="submeniu">
+                <li><a href="galerie.html">Galerie Statică</a></li>
+                <li><a href="galerie-dinamica.html">Galerie Dinamică</a></li>
             </ul>
-        </nav>
+        </li>
+        <li><a href="#tabel-preturi"><i class="fas fa-dumbbell"></i> <span>Produse</span></a>
+            <ul class="submeniu">
+                <li><a href="#tabel-preturi">Tabel Tarife</a></li>
+                <li><a href="#diverse">Resurse Video</a></li>
+            </ul>
+        </li>
+        <li><a href="#contact"><i class="far fa-envelope"></i> <span>Contact</span></a>
+    </ul>
+</nav>
+            
     </header>
+
 
     <main id="acasa">
     <div id="grid-pagina">
         
         <section id="welcome">
             <hgroup>
-                <h2>Performanță și Pasiune</h2>
-                <h3>Descoperă universul SportXtreme</h3>
-            </hgroup>
+                <h2>Performanță și Pasiune</h2> 
+                <p class="subtitlu-sectiune">Descoperă universul SportXtreme</p>           
+             </hgroup>
             <p>Suntem destinația nr. 1 pentru sportivii care nu acceptă compromisuri. Oferim <b>echipament sportiv</b> de top pentru <b>fitness</b>, <b>alergare</b> și sporturi de echipă.</p>
             <blockquote>"Sportul nu construiește caracterul, el îl dezvăluie." - Heywood Broun</blockquote>
             <p>Livrare în 24h direct la ușa ta. Calitate garantată și consultanță gratuită pentru alegerea mărimilor.</p>
         </section>
 
+
       <section id="tabel-preturi">
-    <h3><i class="fas fa-project-diagram"></i> Proiecte & Parteneriate</h3>
+    <h2><i class="fas fa-project-diagram"></i> Proiecte & Parteneriate</h2>
     
     <div class="tabel-scroll-container">
         <table>
@@ -70,7 +80,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td rowspan="2">2025</td> <td>Maratonul Viitorului</td>
+                    <td rowspan="2">2025</td> 
+                    <td>Maratonul Viitorului</td>
                     <td>București</td>
                     <td>5000+ Participanți</td>
                 </tr>
@@ -102,7 +113,7 @@
 </section>
 
         <section id="evenimente">
-            <h3><i class="far fa-calendar-alt"></i> Calendar</h3>
+            <h2><i class="far fa-calendar-alt"></i> Calendar</h2>
             <ol>
                 <li><time datetime="2026-05-15T10:00">15 Mai, ora 10:00</time> - <b>Maratonul Orașului</b>: O cursă de 10km pentru amatori.</li>
                 <li><time datetime="2026-06-20T18:00">20 Iunie, ora 18:00</time> - <b>Workshop Fitness</b>: Tehnici corecte de execuție.</li>
@@ -110,7 +121,7 @@
         </section>
 
         <section id="anunturi">
-            <h3><i class="fas fa-bullhorn"></i> Anunțuri</h3>
+            <h2><i class="fas fa-bullhorn"></i> Anunțuri</h2>
             <article>
                 <p><strong>IMPORTANT:</strong> S-a deschis secțiunea de nutriție! <em>Stoc nou disponibil.</em></p>
                 <p>Am înlocuit <s>vechiul furnizor</s> cu <ins>unul local de încredere</ins>.</p>
@@ -118,19 +129,19 @@
         </section>
 
         <section id="online-users">
-            <h3><i class="fas fa-users"></i> Online acum</h3>
+            <h2><i class="fas fa-users"></i> Online acum</h2>
             <p>Capacitate server: <meter min="0" max="100" low="30" high="70" optimum="20" value="25"></meter> 25%</p>
             <p><i class="fas fa-circle" style="color: #2ecc71;"></i> 142 utilizatori activi</p>
         </section>
 
         <section id="user-stats">
-            <h3><i class="fas fa-chart-line"></i> Intensitate azi</h3>
+            <h2><i class="fas fa-chart-line"></i> Intensitate azi</h2>
             <p>Efort depus: <meter min="0" max="100" low="30" high="70" optimum="80" value="85"></meter> (Ridicat)</p>
             <p>Timp antrenament: 45 min</p>
         </section>
 
         <section id="server-stats">
-            <h3><i class="fas fa-server"></i> Status Sistem</h3>
+            <h2><i class="fas fa-server"></i> Status Sistem</h2>
             <p>Verifică statusul pe <wbr> <a href="https://www.google.com/search?q=server+status#result_id_fictiv">https://www.google.com/search?q=server+status#result_id_fictiv</a></p>
             <p>Latență: 12ms</p>
         </section>
@@ -151,8 +162,21 @@
             <p>Calcul <abbr title="Indice de Masa Corporala">IMC</abbr> (<dfn>Indice de masă corporală</dfn>):</p>
             <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
                 <mi>I</mi><mi>M</mi><mi>C</mi><mo>=</mo>
-                <mfrac><mrow><mi>massa</mi></mrow><mrow><msup><mi>inaltime</mi><mn>2</mn></msup></mrow></mfrac>
+                <mfrac><mrow><mi>masa</mi></mrow><mrow><msup><mi>inaltime</mi><mn>2</mn></msup></mrow></mfrac>
             </math>
+
+            <figure id="harta-interactiva">
+    <h2>Echipament Interactiv</h2>
+    <p>Dă click pe tricou sau pe șosete pentru a naviga!</p>
+
+    <img src="./resurse/imagini/echipament-sport.jpg" alt="Kit echipament sportiv" usemap="#harta-echipament" width="600" height="400" style="display: block; margin: 0 auto;">
+
+    <map name="harta-echipament">
+        <area shape="rect" coords="0,0, 300,400" href="#tabel-preturi" alt="Tricou Albastru" title="Vezi prețul pentru Tricou">
+
+        <area shape="rect" coords="350,0, 600,400" href="#anunturi" alt="Șosete Sport" title="Vezi Anunțurile">
+    </map>
+</figure>
 
             <figure>
                 <picture>
@@ -168,7 +192,7 @@
                 <ul>
                     <li><a href="https://www.decathlon.ro" target="_blank">Partener Extern</a></li>
                     <li><a href="./resurse/imagini/minge-mare.jpg" target="_self">Vezi imagine mare (în tab curent)</a></li>
-                    <li><a href="./resurse/catalog.pdf" download="Catalog_Nou_SportXtreme.pdf">Descarcă Catalog (Redenumit)</a></li>
+                    <li><a href="./resurse/catalog.pdf" download="Catalog_Nou_SportXtreme.pdf">Descarcă Catalog </a></li>
                 </ul>
             </details>
 

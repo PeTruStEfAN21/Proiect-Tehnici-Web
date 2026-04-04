@@ -6,7 +6,7 @@ html, body, div, span, h1, h2, h3, p, a, img, ul, li, table, tr, th, td, section
     vertical-align: baseline;
 }
 
-/* Unități fixe pentru html și body (conform cerinței) */
+/* Unități fixe pentru html și body  */
 html {
     font-size: 16px; 
 }
@@ -14,10 +14,10 @@ html {
 body {
     width: 100%; 
     min-height: 100vh;
-    /* Toate celelalte unități vor fi relative (rem) */
+    /* Toate celelalte unități vor fi relative  */
 }
 
-/* Redefinirea stilurilor de bază folosind unități RELATIVE (rem) */
+/* Redefinirea stilurilor de bază folosind unități RELATIVE */
 h1 { font-size: 2.5rem; font-weight: bold; margin-bottom: 1.2rem; }
 h2 { font-size: 2rem; font-style: italic; color: var(--accent); }
 p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 1rem; }

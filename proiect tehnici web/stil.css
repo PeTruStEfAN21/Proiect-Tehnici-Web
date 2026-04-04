@@ -1,12 +1,12 @@
 :root {
-    /* --- SCHEMA CROMATICĂ (5 CULORI) --- */
+    /* SCHEMA CROMATICĂ  */
     --culoare-baza: #FF5733;      /* Portocaliu (Culoarea principală) */
     --culoare-contrast: #C70039;  /* Roșu închis (Pentru margini/borduri) */
     --culoare-luminoasa: #FFC300; /* Galben (Pentru evidențieri/hover) */
     --culoare-noapte: #1E272E;    /* Gri-albastru închis (Fundal pagină) */
     --culoare-claritate: #F5F6FA; /* Alb-gri (Fundal secțiuni) */
 
-    /* --- VARIABILE DE UTILIZARE (Cerinta 0.25) --- */
+    /* VARIABILE DE UTILIZARE  */
     --fundal-pagina: var(--culoare-noapte);    
     --fundal-sectiuni: var(--culoare-claritate);  
     --accent: var(--culoare-baza);           
@@ -19,7 +19,7 @@
     --culoare-hover: var(--culoare-luminoasa);
 }
 
-/* --- Reset & Font Extern --- */
+/* Reset & Font Extern */
 * { 
     margin: 0; 
     padding: 0; 
@@ -301,4 +301,130 @@ section#diverse iframe[name="video-frame"] {
 #link-top:hover span {
     transform: scale(1.4);
     color: var(--culoare-noapte);
+}
+
+
+
+
+@media print {
+    /* 1. RESETARE TOTALĂ PENTRU PRINT */
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 12pt; /* Unități puncte (pt) pentru print */
+    }
+
+    /* 2. GRID-UL DEVINE BLOCK (ca să nu se taie secțiunile între pagini) */
+    #grid-pagina {
+        display: block !important;
+    }
+
+    /* 3. TITLUL H1 CENTRAT */
+    header h1 {
+        text-align: center;
+        font-size: 24pt;
+        margin-bottom: 20px;
+    }
+
+    /* 4. MENIUL SUB FORMĂ DE LISTĂ VERTICALĂ */
+    nav {
+        display: block !important;
+    }
+    
+    nav ul {
+        display: block !important;
+        list-style-type: disc !important;
+        padding-left: 20px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        border: none !important;
+        font-weight: bold;
+    }
+    
+    /* Ascundem submeniurile și iconițele de hamburger la print */
+    #hamburger, .submeniu {
+        display: none !important;
+    }
+
+    /* 5. PAGE BREAKS  */
+    nav { page-break-after: always; } /* După meniu începe pagină nouă */
+    footer { page-break-before: always; } /* Footer-ul stă singur pe ultima pagină */
+
+    /* 6. ASCUNDEM MEDIA  */
+    img, video, iframe, #link-top, .video-container-flex, figure {
+        display: none !important;
+    }
+
+    /* 7. WATERMARK-UL (Dreapta Jos) */
+    body::after {
+        content: "Petru \A Stefan"; 
+        white-space: pre;
+        position: fixed;
+        bottom: 0.5cm;
+        right: 0.5cm;
+        width: 4cm;
+        height: 1cm;
+        border: 3px solid black;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+        opacity: 0.4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 8. MARGINILE ALTERNATE  */
+    @page {
+        size: auto;
+        margin: 1cm;
+    }
+
+    @page :left {
+        margin-left: 3cm;
+        margin-right: 1cm;
+    }
+
+    @page :right {
+        margin-right: 3cm;
+        margin-left: 1cm;
+    }
+
+    /* 9. BANNERUL DIN FOOTER  */
+    .banner-proiect {
+        display: block !important;
+        width: 70%;
+        margin: 20px auto;
+        border: 4px inset black;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+
+.slogan-site {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--culoare-contrast);
+}
+
+.subtitlu-sectiune {
+    font-size: 1.3rem;
+    color: var(--accent);
+    font-weight: bold;
 }
