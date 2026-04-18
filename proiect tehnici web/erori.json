@@ -1,0 +1,31 @@
+{
+  "cale_baza": "/resurse/imagini/erori",
+  "eroare_default": {
+    "titlu": "Eroare Neașteptată",
+    "text": "Ceva nu a mers bine în antrenamentul nostru digital.",
+    "imagine": "default.jpg"
+  },
+  "info_erori": [
+    {
+      "identificator": 404,
+      "status": true,
+      "titlu": "Pagina nu a fost găsită",
+      "text": "Ai ieșit din teren! Această pagină nu există.",
+      "imagine": "404.jpg"
+    },
+    {
+      "identificator": 403,
+      "status": true,
+      "titlu": "Acces Interzis",
+      "text": "Nu ai bilet pentru această lojă VIP.",
+      "imagine": "403.jpg"
+    },
+    {
+      "identificator": 400,
+      "status": true,
+      "titlu": "Cerere Invalidă",
+      "text": "Fault! Cererea ta către server este incorectă.",
+      "imagine": "400.jpg"
+    }
+  ]
+}

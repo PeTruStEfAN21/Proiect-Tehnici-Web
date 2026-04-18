@@ -1,0 +1,650 @@
+@charset "UTF-8";
+/* --- 1. VARIABILE SASS ȘI CSS --- */
+body {
+  --culoare-baza: #FF5733;
+  --culoare-contrast: #C70039;
+  --culoare-luminoasa: #FFC300;
+  --culoare-noapte: #1E272E;
+  --culoare-claritate: #F5F6FA;
+  --fundal-pagina: var(--culoare-noapte);
+  --fundal-sectiuni: var(--culoare-claritate);
+  --accent: var(--culoare-baza);
+  --text-principal: var(--culoare-noapte);
+  --culoare-text-meniu: #ffffff;
+  --culoare-hover-meniu: var(--culoare-luminoasa);
+  --fundal-submeniu: var(--culoare-noapte);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  transition: font-size 0.3s ease;
+}
+
+body {
+  background-color: var(--fundal-pagina);
+  font-family: "Roboto", sans-serif;
+  padding: 40px 10%;
+  color: var(--text-principal);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--accent);
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: square;
+  padding-left: 2.5rem;
+  color: var(--culoare-contrast);
+}
+ul li {
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+nav ul.meniu-principal {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+nav ul.meniu-principal > li {
+  position: relative;
+  padding: 0 15px;
+}
+nav ul.meniu-principal > li a {
+  display: flex;
+  align-items: center;
+  color: var(--culoare-text-meniu);
+  background-color: var(--culoare-baza);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  border-bottom: 3px solid var(--culoare-contrast);
+  transition: all 0.5s ease;
+}
+nav ul.meniu-principal > li a:hover {
+  color: var(--culoare-hover-meniu);
+  background-color: var(--culoare-contrast);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+nav ul.meniu-principal > li a .text-acasa {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.4s ease, opacity 0.4s ease, margin-left 0.4s ease;
+}
+nav ul.meniu-principal > li:hover a .text-acasa {
+  max-width: 100px;
+  opacity: 1;
+  margin-left: 8px;
+}
+nav ul.meniu-principal > li .submeniu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--fundal-submeniu);
+  border: 1px solid var(--culoare-contrast);
+  border-radius: 5px;
+  min-width: 150px;
+  z-index: 10;
+  transform: scale(0);
+  transform-origin: top center;
+  transition: transform 0.4s ease-in-out;
+  list-style: none;
+  padding: 0;
+}
+nav ul.meniu-principal > li .submeniu li a {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 0;
+}
+nav ul.meniu-principal > li .submeniu li a:hover {
+  color: var(--culoare-hover-meniu);
+  transform: none;
+  box-shadow: none;
+}
+nav ul.meniu-principal > li:hover .submeniu {
+  transform: scale(1);
+}
+
+#hamburger {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+}
+#hamburger span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: var(--culoare-baza);
+  border-radius: 2px;
+}
+#hamburger span:nth-child(1) {
+  top: 0px;
+  animation: aparitie-bara 0.8s ease forwards;
+  animation-delay: 0ms;
+}
+#hamburger span:nth-child(2) {
+  top: 10px;
+  animation: aparitie-bara 0.8s ease forwards;
+  animation-delay: 300ms;
+}
+#hamburger span:nth-child(3) {
+  top: 20px;
+  animation: aparitie-bara 0.8s ease forwards;
+  animation-delay: 600ms;
+}
+
+main a {
+  /* 1. Resetăm culoarea textului (pentru a nu avea albastru standard) */
+  color: var(--culoare-noapte);
+  text-decoration: underline; /* Păstrăm o subliniere clasică */
+  font-weight: bold;
+  /* 2. Pregătirea pentru animația 'Pata de culoare' */
+  position: relative; /* Necesare pentru poziționare internă dacă e cazul, dar background-ul acționează direct */
+  display: inline-block; /* Asigură că background-ul respectă dimensiunile textului */
+  padding: 0 4px; /* Un pic de aer în jurul textului */
+  /* Definirea gradientului radial (Culoarea C1 am ales-o ca fiind --culoare-luminoasa cu puțină opacitate) */
+  /* C1 la 0% și 40%, transparent la 80% și 100% */
+  background-image: radial-gradient(circle, rgba(255, 195, 0, 0.4) 0%, rgba(255, 195, 0, 0.4) 40%, transparent 80%, transparent 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Dimensiunea inițială este 0 (nu se vede pata) */
+  background-size: 0% 0%;
+  /* Tranziția netedă pentru dimensiunea background-ului */
+  transition: background-size 0.4s ease-out, color 0.4s ease-out;
+  /* --- Cerința: Linkurile vizitate --- */
+}
+main a:visited {
+  /* Setăm o culoare din schema cromatică (ex: culoarea contrastantă) */
+  color: var(--culoare-contrast);
+}
+main a {
+  /* --- Cerința: Pata crește la hover --- */
+}
+main a:hover {
+  /* Când aducem cursorul, pata crește la 100% (sau puțin mai mult pentru efect) */
+  background-size: 150% 150%;
+}
+
+/* --- Cerința: Linkurile externe --- */
+/* Selectăm orice link al cărui href începe (^=) cu "http" */
+main a[href^=http] {
+  /* Adăugăm simbolul înainte de link */
+}
+main a[href^=http]::before {
+  content: "⮳ ";
+  /* Dimensiunea fontului cu 50% mai mare (folosind unitatea relativă em) */
+  font-size: 1.5em;
+  display: inline-block;
+  /* Aliniere subtilă pentru a nu decala textul prea mult */
+  vertical-align: middle;
+  color: var(--culoare-baza); /* Culoarea inițială a simbolului */
+  transition: color 0.3s ease; /* Tranziție pentru culoarea simbolului */
+  margin-right: 2px;
+}
+main a[href^=http] {
+  /* La hover pe linkul extern, simbolul își schimbă culoarea */
+}
+main a[href^=http]:hover::before {
+  color: var(--culoare-contrast); /* Se schimbă în roșu/contrast la hover */
+}
+
+@keyframes aparitie-bara {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) rotate(-10deg);
+    background-color: var(--culoare-contrast);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(5px) rotate(10deg);
+    background-color: var(--culoare-luminoasa);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+    background-color: var(--culoare-baza);
+  }
+}
+#grid-pagina {
+  display: grid;
+  gap: 25px;
+  grid-template-areas: "zona1 zona1 zona1" "zona2 zona3 zona3" "zona2 zona4 zona4" "zona5 zona6 zona7" "zona8 zona8 zona8";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#welcome {
+  grid-area: zona1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
+  background: linear-gradient(rgba(245, 246, 250, 0.9), rgba(245, 246, 250, 0.9)), url("./resurse/imagini/background-sport.jpg");
+  background-size: cover;
+}
+
+#tabel-preturi {
+  grid-area: zona2;
+}
+
+#evenimente {
+  grid-area: zona3;
+}
+
+#anunturi {
+  grid-area: zona4;
+}
+
+#online-users {
+  grid-area: zona5;
+  border-left: 4px solid var(--accent);
+}
+
+#user-stats {
+  grid-area: zona6;
+  border-left: 4px solid var(--accent);
+}
+
+#server-stats {
+  grid-area: zona7;
+  border-left: 4px solid var(--accent);
+}
+
+#diverse {
+  grid-area: zona8;
+}
+
+header, footer, section, aside > section, figure {
+  background-color: var(--fundal-sectiuni);
+  padding: 20px;
+  border-radius: 12px;
+  border-bottom: 4px solid var(--culoare-contrast);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+footer {
+  margin-top: 20px;
+}
+
+img, video, iframe, object {
+  width: 100%;
+  max-width: 800px;
+  min-width: 200px;
+  height: auto;
+  display: block;
+  margin: 15px auto;
+  border-radius: 8px;
+}
+
+#tabel-preturi table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 6px double var(--culoare-contrast);
+}
+#tabel-preturi table th {
+  background-color: var(--culoare-contrast);
+  color: white;
+  padding: 10px;
+}
+#tabel-preturi table td {
+  padding: 12px;
+  border: 1px solid var(--culoare-noapte);
+  transition: all 0.75s ease;
+}
+#tabel-preturi table td:nth-child(odd) {
+  color: var(--culoare-luminoasa);
+}
+#tabel-preturi table td:nth-child(even) {
+  color: var(--culoare-contrast);
+}
+#tabel-preturi table tr:hover td:nth-child(odd), #tabel-preturi table tr:hover td:nth-child(even) {
+  background-color: var(--culoare-noapte);
+  border: 5px solid var(--culoare-luminoasa);
+}
+
+math {
+  background: var(--fundal-sectiuni);
+  padding: 1.2rem;
+  border-radius: 8px;
+  display: flex;
+  margin: 1rem auto;
+  font-size: 1.5rem;
+}
+
+math mi {
+  color: var(--culoare-contrast);
+  font-weight: bold;
+  font-family: "Courier New", monospace;
+}
+
+math mn {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+math mfrac {
+  padding: 0.3rem;
+}
+
+#link-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+#link-top:hover {
+  opacity: 1;
+}
+
+#container-sageata {
+  width: 60px;
+  height: 60px;
+  background-color: var(--culoare-baza);
+  border: 3px solid var(--culoare-contrast);
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-15deg);
+  transition: all 0.5s ease;
+}
+
+#link-top:hover #container-sageata {
+  background-color: var(--culoare-luminoasa);
+  transform: rotate(0deg);
+}
+
+#container-sageata span {
+  font-size: 30px;
+  color: white;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+#link-top:hover span {
+  transform: scale(1.4);
+  color: var(--culoare-noapte);
+}
+
+@media screen and (max-width: 1024px) {
+  body {
+    padding: 40px 5%;
+  }
+  #grid-pagina {
+    grid-template-areas: "zona1 zona1" "zona2 zona3" "zona4 zona4" "zona5 zona6" "zona7 zona7" "zona8 zona8";
+    grid-template-columns: 1fr 1fr;
+  }
+  nav ul.meniu-principal li a span {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    padding: 40px 2%;
+  }
+  #grid-pagina {
+    display: block;
+  }
+  section {
+    margin-bottom: 15px;
+  }
+  #hamburger {
+    display: block;
+  }
+  nav ul.meniu-principal {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+    -webkit-mask-size: 100% 0%;
+            mask-size: 100% 0%;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    transition: -webkit-mask-size 0.5s ease;
+    transition: mask-size 0.5s ease;
+    transition: mask-size 0.5s ease, -webkit-mask-size 0.5s ease;
+  }
+  .nav-deschis ul.meniu-principal {
+    display: flex;
+    -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+  }
+}
+/* ==========================================================
+   7. STILURI PENTRU PRINTARE (Cerința css-printare)
+   ========================================================== */
+@media print {
+  /* 1. Resetare generală culori și umbre */
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  /* 2. Toate linkurile se afișează ca text normal */
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+  /* 3. Ascundere media și linkul de top */
+  img, video, iframe, object, figure, #link-top, .video-container-flex, #hamburger {
+    display: none !important;
+  }
+  /* 4. Grid-ul paginii afișat ca block pentru a nu secționa celulele */
+  #grid-pagina {
+    display: block !important;
+  }
+  /* 5. Heading-ul centrat pe prima pagină și Meniul listă simplă */
+  header h1 {
+    text-align: center;
+  }
+  nav {
+    display: block !important;
+    -moz-column-break-after: page;
+         break-after: page; /* Page break DUPĂ meniu */
+  }
+  nav ul.meniu-principal {
+    display: block;
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  nav ul.meniu-principal > li {
+    display: list-item;
+    margin: 10px 0;
+  }
+  .submeniu {
+    display: none !important; /* Ascundem subopțiunile */
+  }
+  /* 6. Page break înainte de footer */
+  footer {
+    -moz-column-break-before: page;
+         break-before: page;
+    position: relative;
+  }
+  /* 7. Bannerul în josul primei pagini (Atenție: HTML-ul trebuie să aibă un <p class="banner-proiect"> în footer) */
+  .banner-proiect {
+    position: absolute;
+    top: 25cm; /* Valoare pentru a coborî bannerul la baza primei pagini */
+    left: 15%; /* Centrat (100% - 70%) / 2 */
+    width: 70%;
+    border: 4px inset black;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    display: block !important; /* Ne asigurăm că apare la print */
+  }
+  /* 8. Watermark pe fiecare pagină (Nume \n Prenume) */
+  body::after {
+    /* Am folosit \000A care este codul Unicode sigur pentru SASS */
+    content: "Petru \aStefan";
+    white-space: pre-wrap;
+    position: fixed;
+    /* L-am ridicat un pic ca să nu se bată cu numărul paginii (5/8) pus de browser */
+    bottom: 2cm;
+    right: 1.5cm;
+    width: 4cm;
+    height: 1cm;
+    /* Am scos flexbox și l-am centrat manual din padding/line-height ca să meargă 100% în print */
+    display: block;
+    padding-top: 0.1cm;
+    line-height: 0.4cm;
+    border: 3px solid black;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    color: black !important;
+    opacity: 0.4;
+    z-index: 9999;
+  }
+  /* 9. Margini alternate (stânga / dreapta) */
+  @page :left {
+    margin-left: 3cm;
+    margin-right: 1cm;
+  }
+  @page :right {
+    margin-left: 1cm;
+    margin-right: 3cm;
+  }
+}
+.video-container-flex {
+  display: flex;
+  flex-direction: column; /* Pune butoanele deasupra și clipul dedesubt */
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+/* Stilizăm linkurile ca să arate a butoane de control */
+#linkuri-video {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#linkuri-video a {
+  background-color: var(--culoare-baza);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+#linkuri-video a:hover {
+  background-color: var(--culoare-contrast);
+  transform: translateY(-3px); /* Se ridică puțin la hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Secretul suprem pentru iframe-uri de pe YouTube: aspect-ratio */
+iframe[name=video-frame] {
+  width: 100%;
+  max-width: 800px;
+  /* Asta îi spune browserului să păstreze proporția clasică de film (16:9), indiferent cât de lat e ecranul! */
+  aspect-ratio: 16/9;
+  border: 4px solid var(--culoare-contrast); /* O ramă subtilă să se asorteze cu site-ul */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Task Individual Video VTT --- */
+.video-vtt-task {
+  /* Lățime în procentaje, minim și maxim pentru ecrane */
+  width: 80%;
+  min-width: 300px;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 3px solid var(--culoare-baza);
+}
+
+/* Stilizarea textului VTT (Subtitrările) */
+.video-vtt-task::cue {
+  background-color: white; /* Background alb cerut */
+  color: var(--culoare-noapte); /* Culoare închisă cerută */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+object[type="application/pdf"] {
+  display: block;
+  margin: 40px auto;
+  width: 95%;
+  max-width: 900px;
+  height: 600px;
+  /* Rama și designul */
+  border: 5px solid var(--culoare-noapte);
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  /* Background în caz că se încarcă greu */
+  background-color: #eee;
+  /* Tranziție fină la hover */
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+object[type="application/pdf"]:hover {
+  border-color: var(--culoare-baza);
+  transform: translateY(-5px);
+}
+
+/* Stil pentru textul de eroare/fallback (dacă PDF-ul nu se încarcă) */
+object p {
+  background: var(--fundal-sectiuni);
+  padding: 20px;
+  border: 2px dashed var(--culoare-contrast);
+  border-radius: 8px;
+  text-align: center;
+}
+object p a {
+  color: var(--culoare-contrast);
+  text-decoration: underline;
+  font-weight: bold;
+}/*# sourceMappingURL=still.css.map */

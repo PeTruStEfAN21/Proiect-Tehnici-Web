@@ -1,0 +1,430 @@
+:root {
+    /* SCHEMA CROMATICĂ  */
+    --culoare-baza: #FF5733;      /* Portocaliu (Culoarea principală) */
+    --culoare-contrast: #C70039;  /* Roșu închis (Pentru margini/borduri) */
+    --culoare-luminoasa: #FFC300; /* Galben (Pentru evidențieri/hover) */
+    --culoare-noapte: #1E272E;    /* Gri-albastru închis (Fundal pagină) */
+    --culoare-claritate: #F5F6FA; /* Alb-gri (Fundal secțiuni) */
+
+    /* VARIABILE DE UTILIZARE  */
+    --fundal-pagina: var(--culoare-noapte);    
+    --fundal-sectiuni: var(--culoare-claritate);  
+    --accent: var(--culoare-baza);           
+    --text-principal: var(--culoare-noapte);   
+    --spatiere-laterala: 10%; /* Spatiere mare pe ecran mare */
+    --gap-celule: 25px;          
+    --padd-universal: 20px;
+    --font-size-baza: 16px;
+    --margine-sectiune: var(--culoare-contrast);
+    --culoare-hover: var(--culoare-luminoasa);
+}
+
+/* Reset & Font Extern */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html {
+    font-size: var(--font-size-baza);
+    transition: font-size 0.3s ease; /* Tranzitie pentru redimensionare text */
+}
+
+body {
+    background-color: var(--fundal-pagina);
+    font-family: 'Roboto', sans-serif;
+    /* Spatiere laterala identica  */
+    padding: 40px var(--spatiere-laterala);
+    color: var(--text-principal);
+    line-height: 1.6;
+}
+
+#grid-pagina {
+    display: grid;
+    gap: var(--gap-celule);
+    /* Definim zonele conform schitei (1-8) */
+    grid-template-areas: 
+        "zona1 zona1 zona1"
+        "zona2 zona3 zona3"
+        "zona2 zona4 zona4"
+        "zona5 zona6 zona7"
+        "zona8 zona8 zona8";
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+/* Izolare vizuala (Cerinta: bg diferit, border, colturi, shadow) */
+header, footer, section, aside > section, figure {
+    background-color: var(--fundal-sectiuni);
+    padding: var(--padd-universal);
+    border-radius: 12px;
+    border-bottom: 4px solid var(--margine-sectiune); /* Un tip de border */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+
+header { margin-bottom: 20px; }
+footer { margin-top: 20px; }
+
+img, video, iframe {
+    width: 100%; /* In procentaje */
+    max-width: 800px; 
+    min-width: 200px;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 8px;
+}
+
+
+/* Ecran Mediu  */
+@media screen and (max-width: 1024px) {
+    :root { 
+        --spatiere-laterala: 5%; 
+        --gap-celule: 15px;
+        --font-size-baza: 15px; 
+    }
+    #grid-pagina {
+        grid-template-areas: 
+            "zona1 zona1"
+            "zona2 zona3"
+            "zona4 zona4"
+            "zona5 zona6"
+            "zona7 zona7"
+            "zona8 zona8";
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Ecran Mic  */
+@media screen and (max-width: 600px) {
+    :root { 
+        --spatiere-laterala: 2%; 
+        --gap-celule: 10px;
+        --font-size-baza: 14px; 
+    }
+    #grid-pagina {
+        display: block; /* Nu mai avem coloane pe mobil */
+    }
+    section { margin-bottom: 15px; }
+}
+
+/* --- Alte stiluri necesare --- */
+table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+th { background: var(--accent); color: var(--fundal-sectiuni); padding: 10px; }
+td { padding: 8px; border: 1px solid var(--culoare-hover); }
+
+#link-top { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    background: var(--accent);
+    padding: 10px;
+    border-radius: 50%;
+}
+
+
+/* Definirea zonelor de grid */
+#welcome { grid-area: zona1; }
+#tabel-preturi { grid-area: zona2; }
+#evenimente { grid-area: zona3; }
+#anunturi { grid-area: zona4; }
+#online-users { grid-area: zona5; }
+#user-stats { grid-area: zona6; }
+#server-stats { grid-area: zona7; }
+#diverse { grid-area: zona8; }
+
+/* F-Pattern pentru Zona 1 */
+#welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%; /* Textul începe din stânga, conform F-Pattern */
+    background: linear-gradient(rgba(245,246,250,0.9), rgba(245,246,250,0.9)), url('./resurse/imagini/background-sport.jpg');
+    background-size: cover;
+}
+
+/* Stilizare pentru placeholders (Zonele 5, 6, 7) */
+#online-users, #user-stats, #server-stats {
+    font-size: 0.9rem;
+    color: var(--text-principal);
+    border-left: 4px solid var(--accent); /* Un stil diferit pentru statistici */
+}
+
+
+.video-container-flex {
+    position: relative;
+    max-width: 80%;
+    margin: 40px 0;
+    padding: 0 !important;
+    display: block;
+}
+
+section#diverse iframe[name="video-frame"] {
+    width: 100%;
+    height: 450px;
+    border: 4px solid var(--margine-sectiune);
+    border-radius: 12px 0 12px 12px;
+    background-color: #000;
+    display: block;
+    margin: 0; 
+    max-width: none; 
+}
+
+#linkuri-video {
+    position: absolute;
+    top: 20px;
+    left: 100%;
+    margin-left: -4px; 
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0;
+    z-index: 10;
+}
+
+#linkuri-video a {
+    text-decoration: none;
+    color: var(--text-secundar);
+    background-color: var(--margine-sectiune);
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    white-space: nowrap;
+    border-radius: 0 8px 8px 0;
+    border: 2px solid var(--margine-sectiune);
+    border-left: none;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+#linkuri-video a:hover {
+    background-color: var(--culoare-hover);
+    color: var(--culoare-noapte);
+    padding-left: 20px;
+}
+
+
+.tabel-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+#tabel-preturi table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 6px double var(--culoare-contrast);
+    caption-side: bottom;
+    background-color: white; 
+}
+
+#tabel-preturi caption {
+    padding: 10px;
+    font-style: italic;
+    color: var(--text-principal);
+}
+
+#tabel-preturi th, #tabel-preturi td {
+    border: 1px solid var(--culoare-noapte);
+    padding: 12px;
+    transition: all 0.75s ease;
+}
+
+#tabel-preturi td:nth-child(odd) {
+    color: var(--culoare-luminoasa) !important; 
+}
+
+#tabel-preturi td:nth-child(even) {
+    color: var(--culoare-contrast) !important; 
+}
+
+#tabel-preturi tr:hover td:nth-child(odd) {
+    background-color: var(--culoare-noapte) !important;
+    color: var(--culoare-luminoasa) !important;
+    border: 5px solid var(--culoare-luminoasa);
+}
+
+#tabel-preturi tr:hover td:nth-child(even) {
+    background-color: var(--culoare-noapte) !important;
+    color: var(--culoare-contrast) !important;
+    border: 5px solid var(--culoare-luminoasa);
+}
+
+#tabel-preturi thead th {
+    background-color: var(--culoare-contrast);
+    color: white !important;
+}
+
+
+#link-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    text-decoration: none;
+    display: block;
+    opacity: 0.6;
+    transition: all 0.5s ease;
+    z-index: 1000;
+}
+
+#container-sageata {
+    width: 60px;
+    height: 60px;
+    background-color: var(--culoare-baza);
+    border: 3px solid var(--culoare-contrast);
+    border-radius: 20px 20px 0 0;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-15deg);
+    transition: all 0.5s ease;
+}
+
+#container-sageata span {
+    font-size: 30px;
+    color: white;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+#link-top:hover {
+    opacity: 1;
+}
+
+#link-top:hover #container-sageata {
+    background-color: var(--culoare-hover);
+    transform: rotate(0deg);
+}
+
+#link-top:hover span {
+    transform: scale(1.4);
+    color: var(--culoare-noapte);
+}
+
+
+
+
+@media print {
+    /* 1. RESETARE TOTALĂ PENTRU PRINT */
+    * {
+        background: transparent !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 12pt; /* Unități puncte (pt) pentru print */
+    }
+
+    /* 2. GRID-UL DEVINE BLOCK (ca să nu se taie secțiunile între pagini) */
+    #grid-pagina {
+        display: block !important;
+    }
+
+    /* 3. TITLUL H1 CENTRAT */
+    header h1 {
+        text-align: center;
+        font-size: 24pt;
+        margin-bottom: 20px;
+    }
+
+    /* 4. MENIUL SUB FORMĂ DE LISTĂ VERTICALĂ */
+    nav {
+        display: block !important;
+    }
+    
+    nav ul {
+        display: block !important;
+        list-style-type: disc !important;
+        padding-left: 20px;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        border: none !important;
+        font-weight: bold;
+    }
+    
+    /* Ascundem submeniurile și iconițele de hamburger la print */
+    #hamburger, .submeniu {
+        display: none !important;
+    }
+
+    /* 5. PAGE BREAKS  */
+    nav { page-break-after: always; } /* După meniu începe pagină nouă */
+    footer { page-break-before: always; } /* Footer-ul stă singur pe ultima pagină */
+
+    /* 6. ASCUNDEM MEDIA  */
+    img, video, iframe, #link-top, .video-container-flex, figure {
+        display: none !important;
+    }
+
+    /* 7. WATERMARK-UL (Dreapta Jos) */
+    body::after {
+        content: "Petru \A Stefan"; 
+        white-space: pre;
+        position: fixed;
+        bottom: 0.5cm;
+        right: 0.5cm;
+        width: 4cm;
+        height: 1cm;
+        border: 3px solid black;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+        opacity: 0.4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 8. MARGINILE ALTERNATE  */
+    @page {
+        size: auto;
+        margin: 1cm;
+    }
+
+    @page :left {
+        margin-left: 3cm;
+        margin-right: 1cm;
+    }
+
+    @page :right {
+        margin-right: 3cm;
+        margin-left: 1cm;
+    }
+
+    /* 9. BANNERUL DIN FOOTER  */
+    .banner-proiect {
+        display: block !important;
+        width: 70%;
+        margin: 20px auto;
+        border: 4px inset black;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+
+.slogan-site {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--culoare-contrast);
+}
+
+.subtitlu-sectiune {
+    font-size: 1.3rem;
+    color: var(--accent);
+    font-weight: bold;
+}

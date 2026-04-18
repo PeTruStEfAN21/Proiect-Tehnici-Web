@@ -1,0 +1,153 @@
+<%- include('../fragmente/head.ejs') %>
+
+<body>
+    <%- include('../fragmente/header.ejs') %>
+
+    <main id="acasa">
+        <div id="grid-pagina">
+            
+            <section id="welcome">
+                <hgroup>
+                    <h2>Performanță și Pasiune</h2> 
+                    <p class="subtitlu-sectiune">Descoperă universul SportXtreme</p>          
+                </hgroup>
+                <p>Suntem destinația nr. 1 pentru sportivii care nu acceptă compromisuri. Oferim <b>echipament sportiv</b> de top pentru <b>fitness</b>, <b>alergare</b> și sporturi de echipă.</p>
+                <blockquote>"Sportul nu construiește caracterul, el îl dezvăluie." - Heywood Broun</blockquote>
+                <p>Livrare în 24h direct la ușa ta. Calitate garantată și consultanță gratuită pentru alegerea mărimilor.</p>
+            </section>
+
+            <section id="tabel-preturi">
+                <h2><i class="fas fa-project-diagram"></i> Proiecte & Parteneriate</h2>
+                <div class="tabel-scroll-container">
+                    <table>
+                        <caption>Sumarul implicării SportXtreme în proiecte sociale și comerciale (2025-2026)</caption>
+                        <thead>
+                            <tr>
+                                <th>An Proiect</th>
+                                <th>Nume Inițiativă</th>
+                                <th>Locație</th>
+                                <th>Impact / Buget</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">2025</td> 
+                                <td>Maratonul Viitorului</td>
+                                <td>București</td>
+                                <td>5000+ Participanți</td>
+                            </tr>
+                            <tr>
+                                <td>Sport în Școli</td>
+                                <td>Cluj-Napoca</td>
+                                <td>20 unități dotate</td>
+                            </tr>
+                            <tr>
+                                <td>2026</td>
+                                <td>Cupa SportXtreme</td>
+                                <td>Brașov</td>
+                                <td>15 Echipe înscrise</td>
+                            </tr>
+                            <tr>
+                                <td>2026</td>
+                                <td>Nutriție pentru toți</td>
+                                <td>Online</td>
+                                <td>Consultări gratuite</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">Total Investiții Comunitate</td> <td>450.000 RON</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+
+            <section id="evenimente">
+                <h2><i class="far fa-calendar-alt"></i> Calendar</h2>
+                <ol>
+                    <li><time datetime="2026-05-15T10:00">15 Mai, ora 10:00</time> - <b>Maratonul Orașului</b>: O cursă de 10km pentru amatori.</li>
+                    <li><time datetime="2026-06-20T18:00">20 Iunie, ora 18:00</time> - <b>Workshop Fitness</b>: Tehnici corecte de execuție.</li>
+                </ol>
+            </section>
+
+            <section id="anunturi">
+                <h2><i class="fas fa-bullhorn"></i> Anunțuri</h2>
+                <article>
+                    <p><strong>IMPORTANT:</strong> S-a deschis secțiunea de nutriție! <em>Stoc nou disponibil.</em></p>
+                    <p>Am înlocuit <s>vechiul furnizor</s> cu <ins>unul local de încredere</ins>.</p>
+                </article>
+            </section>
+
+            <section id="online-users">
+                <h2><i class="fas fa-users"></i> Online acum</h2>
+                <p>Capacitate server: <meter min="0" max="100" low="30" high="70" optimum="20" value="25"></meter> 25%</p>
+                <p><i class="fas fa-circle" style="color: #2ecc71;"></i> 142 utilizatori activi</p>
+            </section>
+
+            <section id="user-stats">
+                <h2><i class="fas fa-chart-line"></i> Intensitate azi</h2>
+                <p>Efort depus: <meter min="0" max="100" low="30" high="70" optimum="80" value="85"></meter> (Ridicat)</p>
+                <p>Timp antrenament: 45 min</p>
+            </section>
+
+            <section id="server-stats">
+                <h2><i class="fas fa-server"></i> Status Sistem</h2>
+                <p>Verifică statusul pe <wbr> <a href="https://www.google.com/search?q=server+status#result_id_fictiv">https://www.google.com/search?q=server+status#result_id_fictiv</a></p>
+                <p>Latență: 12ms</p>
+            </section>
+
+            <section id="diverse">
+                <h2><i class="fas fa-star"></i> Resurse & Tutoriale</h2>
+                
+                <div class="video-container-flex">
+                    <div id="linkuri-video">
+                        <a href="https://www.youtube.com/embed/zBBorePkklE" target="video-frame">Fitness</a>
+                        <a href="https://www.youtube.com/embed/CUqjpwbilZM" target="video-frame">Alergare</a>
+                        <a href="https://www.youtube.com/embed/zBBorePkklE?playlist=zBBorePkklE,CUqjpwbilZM&loop=1" target="video-frame">Playlist</a>
+                    </div>
+                    <iframe name="video-frame" src="https://www.youtube.com/embed/zBBorePkklE" frameborder="0" allowfullscreen></iframe>
+                </div>
+
+                <p>Calcul <abbr title="Indice de Masa Corporala">IMC</abbr> (<dfn>Indice de masă corporală</dfn>):</p>
+                <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                    <mi>I</mi><mi>M</mi><mi>C</mi><mo>=</mo>
+                    <mfrac><mrow><mi>masa</mi></mrow><mrow><msup><mi>inaltime</mi><mn>2</mn></msup></mrow></mfrac>
+                </math>
+
+                <figure id="harta-interactiva">
+                    <h2>Echipament Interactiv</h2>
+                    <p>Dă click pe tricou sau pe șosete pentru a naviga!</p>
+                    <img src="/resurse/imagini/echipament-sport.jpg" alt="Kit echipament sportiv" usemap="#harta-echipament" width="600" height="400" style="display: block; margin: 0 auto;">
+                    <map name="harta-echipament">
+                        <area shape="rect" coords="0,0, 300,400" href="#tabel-preturi" alt="Tricou Albastru" title="Vezi prețul pentru Tricou">
+                        <area shape="rect" coords="350,0, 600,400" href="#anunturi" alt="Șosete Sport" title="Vezi Anunțurile">
+                    </map>
+                </figure>
+
+                <figure>
+                    <picture>
+                        <source srcset="/resurse/imagini/minge-mare.jpg" media="(min-width: 1024px)">
+                        <source srcset="/resurse/imagini/minge-medie.jpg" media="(min-width: 768px)">
+                        <img src="/resurse/imagini/minge-mica.jpg" alt="Echipament" title="Minge de fotbal profesionala" width="200">
+                    </picture>
+                    <figcaption>Echipament testat de profesioniști.</figcaption>
+                </figure>
+
+                <details>
+                    <summary>Resurse Descărcabile</summary>
+                    <ul>
+                        <li><a href="https://www.decathlon.ro" target="_blank">Partener Extern</a></li>
+                        <li><a href="/resurse/imagini/minge-mare.jpg" target="_self">Vezi imagine mare (în tab curent)</a></li>
+                        <li><a href="/resurse/catalog.pdf" download="Catalog_Nou_SportXtreme.pdf">Descarcă Catalog </a></li>
+                    </ul>
+                </details>
+
+                <object data="/resurse/catalog.pdf" type="application/pdf" width="100%" height="300px">
+                    <p>PDF-ul nu poate fi afișat. <a href="/resurse/catalog.pdf">Descarcă aici</a>.</p>
+                </object>
+            </section>
+        </div>
+    </main>
+
+    <%- include('../fragmente/footer.ejs') %>

@@ -1,0 +1,17 @@
+<%- include('../fragmente/head.ejs') %>
+<body>
+    <%- include('../fragmente/header.ejs') %>
+
+    <main id="pagina-eroare" style="text-align: center; padding: 50px 10%;">
+        <h1 style="color: var(--culoare-contrast); font-size: 3rem;"><%= locals.titlu %></h1>
+        
+        <img src="<%= locals.imagine %>" alt="Imagine eroare <%= locals.titlu %>" style="max-width: 400px; margin: 20px auto; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        
+        <p style="font-size: 1.5rem; margin-top: 20px;"><%= locals.text %></p>
+        
+        <a href="/" style="display: inline-block; margin-top: 30px; padding: 10px 20px; background-color: var(--culoare-baza); color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+            <i class="fas fa-home"></i> Întoarce-te la antrenament (Acasă)
+        </a>
+    </main>
+
+    <%- include('../fragmente/footer.ejs') %>
