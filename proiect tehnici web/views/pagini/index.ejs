@@ -8,13 +8,16 @@
             
             <section id="welcome">
                 <hgroup>
-                    <h2>Performanță și Pasiune</h2> 
+                    <h2 class="text-reflexie" data-text="Performanță și Pasiune">Performanță și Pasiune</h2>
                     <p class="subtitlu-sectiune">Descoperă universul SportXtreme</p>          
                 </hgroup>
                 <p>Suntem destinația nr. 1 pentru sportivii care nu acceptă compromisuri. Oferim <b>echipament sportiv</b> de top pentru <b>fitness</b>, <b>alergare</b> și sporturi de echipă.</p>
                 <blockquote>"Sportul nu construiește caracterul, el îl dezvăluie." - Heywood Broun</blockquote>
                 <p>Livrare în 24h direct la ușa ta. Calitate garantată și consultanță gratuită pentru alegerea mărimilor.</p>
+                            <hr class="linie-despartitoare">
+
             </section>
+
 
             <section id="tabel-preturi">
                 <h2><i class="fas fa-project-diagram"></i> Proiecte & Parteneriate</h2>
@@ -69,6 +72,8 @@
                     <li><time datetime="2026-05-15T10:00">15 Mai, ora 10:00</time> - <b>Maratonul Orașului</b>: O cursă de 10km pentru amatori.</li>
                     <li><time datetime="2026-06-20T18:00">20 Iunie, ora 18:00</time> - <b>Workshop Fitness</b>: Tehnici corecte de execuție.</li>
                 </ol>
+                            <button class="btn btn-primary">Buton Custom Bootstrap</button>
+
             </section>
 
             <section id="anunturi">
@@ -77,7 +82,16 @@
                     <p><strong>IMPORTANT:</strong> S-a deschis secțiunea de nutriție! <em>Stoc nou disponibil.</em></p>
                     <p>Am înlocuit <s>vechiul furnizor</s> cu <ins>unul local de încredere</ins>.</p>
                 </article>
+                <section id="anunturi">
+    <h2><i class="fas fa-bullhorn"></i> Anunțuri</h2>
+    <!-- AICI APLICĂM CLASA -->
+    <div class="text-plimbaret">
+        <p>🔥 OFERTĂ SPECIALĂ: 20% reducere la toate mingile de fotbal până la sfârșitul săptămânii! 🔥</p>
+    </div>
+</section>
             </section>
+
+            
 
             <section id="online-users">
                 <h2><i class="fas fa-users"></i> Online acum</h2>
@@ -99,6 +113,7 @@
 
             <section id="diverse">
                 <h2><i class="fas fa-star"></i> Resurse & Tutoriale</h2>
+
                 
                 <div class="video-container-flex">
                     <div id="linkuri-video">
@@ -109,11 +124,17 @@
                     <iframe name="video-frame" src="https://www.youtube.com/embed/zBBorePkklE" frameborder="0" allowfullscreen></iframe>
                 </div>
 
+
                 <p>Calcul <abbr title="Indice de Masa Corporala">IMC</abbr> (<dfn>Indice de masă corporală</dfn>):</p>
                 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
                     <mi>I</mi><mi>M</mi><mi>C</mi><mo>=</mo>
                     <mfrac><mrow><mi>masa</mi></mrow><mrow><msup><mi>inaltime</mi><mn>2</mn></msup></mrow></mfrac>
                 </math>
+
+                <section id="sectiune-duotone">
+    <h2><i class="fas fa-camera"></i> Efect Duotone</h2>
+    <div class="efect-duotone" style="background-image: url('/resurse/imagini/echipament-sport.jpg');"></div>
+</section>
 
                 <figure id="harta-interactiva">
                     <h2>Echipament Interactiv</h2>
@@ -148,6 +169,13 @@
                 </object>
             </section>
         </div>
+
+
+
+        <section id="sectiune-galerie">
+    <h2><i class="fas fa-camera"></i> Galerie Statică</h2>
+    <%- include('../fragmente/galerie.ejs') %>
+</section>
     </main>
 
     <%- include('../fragmente/footer.ejs') %>

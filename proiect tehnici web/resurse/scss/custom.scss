@@ -1,0 +1,23 @@
+// 1. Schimbăm variabilele Bootstrap folosind culorile tale din SportXtreme
+$primary: #FF5733; 
+$secondary: #C70039;
+$dark: #1E272E;
+$body-bg: #F5F6FA;
+
+// 2. Modificăm dimensiuni (Ecrane medii și mari cerute)
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 800px,  // Schimbat de la 768px
+  lg: 1100px, // Schimbat de la 992px
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// 3. Razele de border și font
+$border-radius: 1.5rem; // Butoane mai rotunjite
+$font-family-base: 'Courier New', monospace; // Font implicit schimbat
+$h1-font-size: 3rem;
+
+// 4. Importăm tot Bootstrap-ul peste variabilele noastre
+@import "../../node_modules/bootstrap/scss/bootstrap";

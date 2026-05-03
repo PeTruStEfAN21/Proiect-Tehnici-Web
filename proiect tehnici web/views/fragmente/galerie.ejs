@@ -1,0 +1,18 @@
+<div class="galerie-statica">
+    <% if (locals.imaginiGalerie && imaginiGalerie.length > 0) { %>
+        <% for(let i = 0; i < imaginiGalerie.length; i++) { %>
+            <figure>
+                <picture>
+                    <source media="(max-width: 600px)" srcset="<%= imaginiGalerie[i].cale_mic %>">
+                    <source media="(max-width: 1024px)" srcset="<%= imaginiGalerie[i].cale_mediu %>">
+                    <img src="<%= imaginiGalerie[i].cale_absoluta %>" 
+                         alt="<%= imaginiGalerie[i].continut_alternativ || imaginiGalerie[i].nume_poza %>" 
+                         title="<%= imaginiGalerie[i].descriere_poza %>">
+                </picture>
+                <figcaption><%= imaginiGalerie[i].descriere_poza %></figcaption>
+            </figure>
+        <% } %>
+    <% } else { %>
+        <p>Nu există imagini disponibile pentru ziua de azi.</p>
+    <% } %>
+</div>

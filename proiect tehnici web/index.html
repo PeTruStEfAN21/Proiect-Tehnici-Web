@@ -8,12 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="msapplication-TileColor" content="#ff4500">
     
-    <link rel="stylesheet" href="./bonus.css">
-    <link rel="stylesheet" href="./stil.css">
-    <link rel="stylesheet" href="./still.css">  
+    <link rel="stylesheet" href="/resurse/css/custom.css">
+<link rel="stylesheet" href="/resurse/css/bonus.css">
+<link rel="stylesheet" href="/resurse/css/stil.css">
+<link rel="stylesheet" href="/resurse/css/still.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./resurse/ico/sigla.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./resurse/ico/sigla.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./resurse/ico/sigla.png">
+    
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -56,13 +58,19 @@
         <section id="welcome">
             <hgroup>
                 <h2>Performanță și Pasiune</h2> 
-                <p class="subtitlu-sectiune">Descoperă universul SportXtreme</p>           
+                <p class="subtitlu-sectiune">Descoperă universul SportXtreme</p>          
              </hgroup>
             <p>Suntem destinația nr. 1 pentru sportivii care nu acceptă compromisuri. Oferim <b>echipament sportiv</b> de top pentru <b>fitness</b>, <b>alergare</b> și sporturi de echipă.</p>
             <blockquote>"Sportul nu construiește caracterul, el îl dezvăluie." - Heywood Broun</blockquote>
             <p>Livrare în 24h direct la ușa ta. Calitate garantată și consultanță gratuită pentru alegerea mărimilor.</p>
+            
+            <hr class="linie-despartitoare">
         </section>
 
+
+
+
+  
 
       <section id="tabel-preturi">
     <h2><i class="fas fa-project-diagram"></i> Proiecte & Parteneriate</h2>
@@ -118,6 +126,7 @@
                 <li><time datetime="2026-05-15T10:00">15 Mai, ora 10:00</time> - <b>Maratonul Orașului</b>: O cursă de 10km pentru amatori.</li>
                 <li><time datetime="2026-06-20T18:00">20 Iunie, ora 18:00</time> - <b>Workshop Fitness</b>: Tehnici corecte de execuție.</li>
             </ol>
+            <button class="btn btn-primary">Buton Custom Bootstrap</button>
         </section>
 
         <section id="anunturi">
@@ -127,6 +136,8 @@
                 <p>Am înlocuit <s>vechiul furnizor</s> cu <ins>unul local de încredere</ins>.</p>
             </article>
         </section>
+
+        
 
         <section id="online-users">
             <h2><i class="fas fa-users"></i> Online acum</h2>
@@ -164,6 +175,11 @@
                 <mi>I</mi><mi>M</mi><mi>C</mi><mo>=</mo>
                 <mfrac><mrow><mi>masa</mi></mrow><mrow><msup><mi>inaltime</mi><mn>2</mn></msup></mrow></mfrac>
             </math>
+
+            <section id="sectiune-duotone">
+    <h2><i class="fas fa-camera"></i> Efect Duotone</h2>
+    <div class="efect-duotone" style="background-image: url('/resurse/imagini/echipament-sport.jpg');"></div>
+</section>
 
             <figure id="harta-interactiva">
     <h2>Echipament Interactiv</h2>
@@ -230,5 +246,18 @@
 
     <p><small>© 2026 SportXtreme. Toate drepturile rezervate. Pagina creată: <time datetime="2026-03-10">10 Martie 2026</time></small></p>
 </footer>
+
+<script>
+    // Așteptăm să se încarce pagina
+    document.addEventListener("DOMContentLoaded", function() {
+        const hamburger = document.getElementById("hamburger");
+        const meniu = document.querySelector(".meniu-principal");
+
+        hamburger.onclick = function() {
+            // "Toggle" adaugă clasa dacă nu e, și o scoate dacă este
+            meniu.classList.toggle("afiseaza-meniu");
+        };
+    });
+</script>
 </body>
 </html>

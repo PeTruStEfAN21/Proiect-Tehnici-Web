@@ -19,7 +19,6 @@
     --culoare-hover: var(--culoare-luminoasa);
 }
 
-/* Reset & Font Extern */
 * { 
     margin: 0; 
     padding: 0; 
@@ -54,7 +53,7 @@ body {
 }
 
 
-/* Izolare vizuala (Cerinta: bg diferit, border, colturi, shadow) */
+/* Izolare vizuala  */
 header, footer, section, aside > section, figure {
     background-color: var(--fundal-sectiuni);
     padding: var(--padd-universal);
@@ -109,7 +108,7 @@ img, video, iframe {
     section { margin-bottom: 15px; }
 }
 
-/* --- Alte stiluri necesare --- */
+/* Alte stiluri necesare */
 table { width: 100%; border-collapse: collapse; margin: 10px 0; }
 th { background: var(--accent); color: var(--fundal-sectiuni); padding: 10px; }
 td { padding: 8px; border: 1px solid var(--culoare-hover); }
@@ -307,7 +306,7 @@ section#diverse iframe[name="video-frame"] {
 
 
 @media print {
-    /* 1. RESETARE TOTALĂ PENTRU PRINT */
+    /*  RESETARE TOTALĂ PENTRU PRINT */
     * {
         background: transparent !important;
         color: black !important;

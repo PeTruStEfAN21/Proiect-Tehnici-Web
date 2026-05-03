@@ -1,17 +1,28 @@
 {
   "name": "proiect-tehnici-web",
   "version": "1.0.0",
-  "description": "",
+  "description": "Magazin de articole sportive SportX",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeTruStEfAN21/Proiect-Tehnici-Web.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PeTruStEfAN21/Proiect-Tehnici-Web/issues"
+  },
+  "homepage": "https://github.com/PeTruStEfAN21/Proiect-Tehnici-Web#readme",
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "ejs": "^5.0.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "sass": "^1.99.0",
+    "sharp": "^0.34.5"
   }
 }

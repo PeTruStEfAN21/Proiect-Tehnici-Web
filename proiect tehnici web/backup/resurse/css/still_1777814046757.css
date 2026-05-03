@@ -1,0 +1,404 @@
+@charset "UTF-8";
+/* ==========================================================
+   1. VARIABILE (SASS & CSS) - Cerința: Schema Cromatică
+   ========================================================== */
+:root {
+  --primary: #FF5733;
+  --secondary: #C70039;
+  --accent: #FFC300;
+  --dark: #1E272E;
+  --light: #F5F6FA;
+  --bg-page: var(--dark);
+  --bg-section: var(--light);
+  --text-main: var(--dark);
+  --text-light: #ffffff;
+  --border-radius: 12px;
+  --transition-fast: 0.3s ease;
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================
+   2. RESET & GLOBAL STYLES
+   ========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-page);
+  font-family: "Roboto", sans-serif;
+  padding: 40px 8%;
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--dark);
+  text-shadow: none;
+}
+
+/* ==========================================================
+   3. NAVIGAȚIE & MENIU (Cerința: Meniu animat & Hamburger)
+   ========================================================== */
+nav {
+  background-color: #333;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav ul.meniu-principal {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+nav ul.meniu-principal > li {
+  position: relative;
+}
+nav ul.meniu-principal > li a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-fast);
+  border-radius: 8px;
+}
+nav ul.meniu-principal > li a:hover {
+  background-color: var(--primary);
+  color: white;
+}
+nav ul.meniu-principal > li a .text-acasa {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: var(--transition-fast);
+}
+nav ul.meniu-principal > li:hover a .text-acasa {
+  max-width: 100px;
+  opacity: 1;
+  margin-left: 5px;
+}
+nav ul.meniu-principal > li .submeniu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--dark);
+  min-width: 180px;
+  border-radius: 0 0 8px 8px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: var(--transition-fast);
+  z-index: 100;
+  list-style: none;
+}
+nav ul.meniu-principal > li .submeniu li a {
+  padding: 12px;
+  border-radius: 0;
+}
+nav ul.meniu-principal > li .submeniu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+nav ul.meniu-principal > li:hover .submeniu {
+  transform: scaleY(1);
+}
+
+#hamburger {
+  display: none;
+  width: 35px;
+  height: 25px;
+  cursor: pointer;
+  position: relative;
+}
+#hamburger span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: var(--primary);
+  border-radius: 2px;
+  transition: var(--transition-fast);
+}
+#hamburger span:nth-child(1) {
+  top: 0;
+}
+#hamburger span:nth-child(2) {
+  top: 10px;
+}
+#hamburger span:nth-child(3) {
+  top: 20px;
+}
+#hamburger.activ span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+#hamburger.activ span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+#hamburger.activ span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* ==========================================================
+   4. LAYOUT GRID (Cerința: Grid complex & Responsive)
+   ========================================================== */
+#grid-pagina {
+  display: grid;
+  gap: 25px;
+  grid-template-areas: "zona1 zona1 zona1" "zona2 zona3 zona3" "zona2 zona4 zona4" "zona5 zona6 zona7" "zona8 zona8 zona8";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#welcome {
+  grid-area: zona1;
+}
+
+#tabel-preturi {
+  grid-area: zona2;
+}
+
+#evenimente {
+  grid-area: zona3;
+}
+
+#anunturi {
+  grid-area: zona4;
+}
+
+#online-users {
+  grid-area: zona5;
+}
+
+#user-stats {
+  grid-area: zona6;
+}
+
+#server-stats {
+  grid-area: zona7;
+}
+
+#diverse {
+  grid-area: zona8;
+}
+
+header, footer, section {
+  background-color: var(--bg-section);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border-bottom: 5px solid var(--secondary);
+}
+
+/* ==========================================================
+   5. TABEL (Cerința: Tabel Responsive & Stilizat)
+   ========================================================== */
+#tabel-preturi table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 6px double var(--secondary);
+  margin: 15px 0;
+}
+#tabel-preturi table caption {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--secondary);
+}
+#tabel-preturi table th {
+  background-color: var(--secondary);
+  color: white;
+  padding: 12px;
+}
+#tabel-preturi table td {
+  padding: 12px;
+  border: 1px solid var(--dark);
+  text-align: center;
+  transition: var(--transition-fast);
+}
+#tabel-preturi table td:nth-child(odd) {
+  color: var(--secondary);
+  font-weight: bold;
+}
+#tabel-preturi table tr:hover td {
+  background-color: var(--dark);
+  color: var(--accent) !important;
+}
+
+/* ==========================================================
+   6. ANIMAȚII (Cerința: Text plimbăreț / Keyframes)
+   ========================================================== */
+.text-plimbaret {
+  overflow: hidden;
+  white-space: nowrap;
+  background: rgba(199, 0, 57, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+.text-plimbaret p {
+  display: inline-block;
+  animation: scroll-text 12s linear infinite;
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* ==========================================================
+   7. ELEMENTE MEDIA (Video, PDF, MathML)
+   ========================================================== */
+.video-container-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.video-container-flex iframe {
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  border: 3px solid var(--primary);
+}
+
+object[type="application/pdf"] {
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+}
+
+math {
+  font-size: 1.4rem;
+  color: var(--secondary);
+  padding: 20px;
+  display: block;
+  text-align: center;
+}
+
+/* ==========================================================
+   8. RESPONSIVE DESIGN (Media Queries)
+   ========================================================== */
+@media screen and (max-width: 1024px) {
+  #grid-pagina {
+    grid-template-areas: "zona1 zona1" "zona2 zona3" "zona4 zona4" "zona5 zona6" "zona7 zona8";
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    padding: 20px 3%;
+  }
+  #grid-pagina {
+    display: block;
+  }
+  section {
+    margin-bottom: 20px;
+  }
+  #hamburger {
+    display: block;
+  }
+  nav ul.meniu-principal {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark);
+    padding: 0;
+    z-index: 1000;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.3s ease;
+  }
+  nav ul.meniu-principal.afiseaza-meniu {
+    max-height: 500px;
+    opacity: 1;
+    padding: 20px 0;
+  }
+  nav ul.meniu-principal li {
+    width: 100%;
+    text-align: center;
+  }
+  nav ul.meniu-principal li a {
+    justify-content: center;
+  }
+  nav ul.meniu-principal li a span:not(.text-acasa) {
+    display: inline !important;
+  }
+  nav ul.meniu-principal li .submeniu {
+    position: static;
+    transform: scaleY(1);
+    display: none;
+  }
+  nav ul.meniu-principal li:hover .submeniu {
+    display: block;
+  }
+}
+/* ==========================================================
+   9. PRINT STYLES (Cerința: CSS-Printare)
+   ========================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  nav, #hamburger, #link-top, footer, iframe, object {
+    display: none !important;
+  }
+  #grid-pagina {
+    display: block !important;
+  }
+  section {
+    border: 1px solid #ccc !important;
+    page-break-inside: avoid;
+    margin-bottom: 1cm;
+  }
+  body::after {
+    content: "Petru Stefan";
+    position: fixed;
+    bottom: 1cm;
+    right: 1cm;
+    opacity: 0.3;
+    font-size: 12pt;
+    border: 1px solid black;
+    padding: 5px;
+  }
+}
+#welcome {
+  /* ... restul codului tau ... */
+  background-attachment: fixed; /* Asta tine imaginea pe loc la scroll */
+  animation: schimba-fundal 10s infinite alternate;
+}
+
+@keyframes schimba-fundal {
+  0% {
+    background-position: top;
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    background-position: bottom;
+    filter: hue-rotate(45deg);
+  }
+}

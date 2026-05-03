@@ -1,0 +1,103 @@
+{
+  "cale_galerie": "/resurse/imagini/galerie/",
+  "imagini": [
+    {
+      "fisier_imagine": "abdomene.jpg",
+      "nume_poza": "Abdomene",
+      "continut_alternativ": "Femeie făcând abdomene",
+      "descriere_poza": "Exerciții pentru tonifierea abdomenului",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "alergare.jpg",
+      "nume_poza": "Alergare",
+      "continut_alternativ": "Femeie alergând pe pistă",
+      "descriere_poza": "Alergare de viteză (Licență CC-BY, Autor: SportFoto)",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "basket.jpg",
+      "nume_poza": "Baschet",
+      "continut_alternativ": "Jucători de baschet în acțiune",
+      "descriere_poza": "Meci intens de baschet",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "dans.webp",
+      "nume_poza": "Dans Aerobic",
+      "continut_alternativ": "Grup făcând dans aerobic",
+      "descriere_poza": "Clasă de dans pentru cardio",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "fotbal.jpg",
+      "nume_poza": "Fotbal",
+      "continut_alternativ": "Jucător de fotbal pregătind șutul",
+      "descriere_poza": "Meci de fotbal pe stadion",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "hockey.jpg",
+      "nume_poza": "Hochei",
+      "continut_alternativ": "Jucător de hochei pe gheață",
+      "descriere_poza": "Echipament complet pentru hochei",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "inot.jpg",
+      "nume_poza": "Înot",
+      "continut_alternativ": "Înotător în bazin",
+      "descriere_poza": "Performanță în bazinul olimpic",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "karate.jpg",
+      "nume_poza": "Karate",
+      "continut_alternativ": "Săritură și lovitură în karate",
+      "descriere_poza": "Demonstrație de arte marțiale",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "minge-fotbal.jpg",
+      "nume_poza": "Minge Fotbal",
+      "continut_alternativ": "Minge de fotbal pe gazon",
+      "descriere_poza": "Pregătire pentru lovitura liberă",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "mult-sport.jpg",
+      "nume_poza": "Atletism",
+      "continut_alternativ": "Atleți la linia de start",
+      "descriere_poza": "Competiție de atletism",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "ROMANIA.jpg",
+      "nume_poza": "Echipa României",
+      "continut_alternativ": "Echipa națională a României",
+      "descriere_poza": "Mândrie națională pe teren",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "sala-sport.jpg",
+      "nume_poza": "Sală de Sport",
+      "continut_alternativ": "Aparate fitness într-o sală modernă",
+      "descriere_poza": "Echipamente de ultimă generație",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "tenis.jpg",
+      "nume_poza": "Tenis",
+      "continut_alternativ": "Lovirea mingii de tenis",
+      "descriere_poza": "Serviciu pe terenul de zgură",
+      "intervale_zile": [["luni", "duminica"]]
+    },
+    {
+      "fisier_imagine": "volei.jpg",
+      "nume_poza": "Volei pe plajă",
+      "continut_alternativ": "Jucătoare sărind la fileu",
+      "descriere_poza": "Săritură spectaculoasă la fileu",
+      "intervale_zile": [["luni", "duminica"]]
+    }
+  ]
+}

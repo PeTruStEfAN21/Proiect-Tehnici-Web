@@ -24,5 +24,17 @@
 
     <p><small>© 2026 SportXtreme. Toate drepturile rezervate. Pagina creată: <time datetime="2026-03-10">10 Martie 2026</time></small></p>
 </footer>
+<script>
+    // Așteptăm să se încarce pagina
+    document.addEventListener("DOMContentLoaded", function() {
+        const hamburger = document.getElementById("hamburger");
+        const meniu = document.querySelector(".meniu-principal");
+
+        hamburger.onclick = function() {
+            // "Toggle" adaugă clasa dacă nu e, și o scoate dacă este
+            meniu.classList.toggle("afiseaza-meniu");
+        };
+    });
+</script>
 </body>
 </html>
